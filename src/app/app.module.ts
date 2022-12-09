@@ -7,18 +7,39 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { FormsModule } from '@angular/forms';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { UserRegisterComponent } from './user-register/user-register.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { RouterModule, Routes } from '@angular/router';
+
+
+const myRoute:Routes=[
+  {
+    path: "",
+    component:AdminLoginComponent
+  },
+  {
+    path:"register",
+    component:UserRegisterComponent
+  },
+  {
+    path:"login",
+    component:UserLoginComponent
+  }
+  ]
+  
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminLoginComponent,
     UserLoginComponent,
-    UserRegisterComponent
+    UserRegisterComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(myRoute),
   ],
   providers: [],
   bootstrap: [AppComponent]
